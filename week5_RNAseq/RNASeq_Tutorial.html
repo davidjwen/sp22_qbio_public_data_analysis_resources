@@ -11,7 +11,7 @@
 
 <meta name="author" content="Kate Guion" />
 
-<meta name="date" content="2022-02-07" />
+<meta name="date" content="2022-02-09" />
 
 <title>RNA-seq tutorial</title>
 
@@ -245,7 +245,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">RNA-seq tutorial</h1>
 <h4 class="author">Kate Guion</h4>
-<h4 class="date">2022-02-07</h4>
+<h4 class="date">2022-02-09</h4>
 
 </div>
 
@@ -258,7 +258,7 @@ div.tocify {
 <div id="setting-up-packages" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Setting Up Packages</h1>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-1" class="exercise"><strong>Exercise 1.1  (Set Up) </strong></span>First, as usual, let’s download the packages we need! We need the <code>SummarizedExperiment</code> package. Use <code>BiocManager::install()</code> to install this package.</p>
+<p><span id="exr:unlabeled-div-1" class="exercise"><strong>Exercise 1.1  (Set Up) </strong></span>First, as usual, let’s download the packages we need! We need the <code>SummarizedExperiment</code> package. Use <code>BiocManager::install(&quot;SummarizedExperiment&quot;)</code> to install this package.</p>
 <pre class="r"><code># Install the package here</code></pre>
 <p>Then, load the appropriate libraries. We will use <code>TCGAbiolinks</code> and <code>SummarizedExperiment</code>.
 Check for understanding: What function do we need to do every time we want to use a package?</p>
@@ -433,6 +433,7 @@ z - x == y
 <div class="exercise">
 <p><span id="exr:unlabeled-div-22" class="exercise"><strong>Exercise 2.20  </strong></span>To prove this to you, verify that the <code>assays(sum_exp)$&quot;HTSeq - Counts&quot;</code> and the <code>colData(sum_exp)</code> contain the same patients and in the <em>same order</em> using the <code>identical()</code> function. Determine if the patients are the rows or columns of each dataframe to fill in the code.</p>
 <p>Then, because they are identical, we can use <code>bool_age_na</code> to access the patients without NA in their age from the <code>assays(sum_exp)$&quot;HTSeq - Counts&quot;</code>. Remember that to access the data frame information, use <code>dataframe[row, col]</code>. Index into <code>assays(sum_exp)$&quot;HTSeq - Counts&quot;</code> using <code>bool_age_na</code> and <code>ensembl_geneA</code> (or <code>ensembl_geneB</code>). It’s up to you to determine which is the row and which is the column!</p>
+<p>Check for understanding: Briefly explain how we created <code>gene_counts</code> and why it works.</p>
 <pre class="r"><code>identical( ___names(colData(sum_exp)), ___names(assays(sum_exp)$&quot;HTSeq - Counts&quot;)  )
 # Fill in the dotted lines with &quot;row&quot; or &quot;col&quot;
 
@@ -440,7 +441,6 @@ gene_counts = ...</code></pre>
 </div>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-23" class="exercise"><strong>Exercise 2.21  </strong></span>Check your work. If you have done the above correctly, the length of <code>age_cat_no_NAs</code> should equal the length of <code>gene_counts</code>.</p>
-<p>Check for understanding: Briefly explain how we created <code>gene_counts</code> and why it works.</p>
 <pre class="r"><code># Check here using the `length()` function and `==`</code></pre>
 </div>
 <div class="exercise">
